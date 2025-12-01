@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AeroSEA Airlines</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header></header>
+
+    <nav>
+        <div class="nav-title">
+            <img src="https://i.imgur.com/cwiFDWO.png" alt="AeroSEA Logo" height="50px">
+            AeroSEA Airlines
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="Booking-details.html">Booking details</a>
+            <a href="Guest-details.html">Guest details</a>
+            <a href="Payment.html">Payment</a>
+            <a href="Confirmation.html">Confirmation</a>
+        </div>
+    </nav>
+
+    <section id="Home">
+        <section class="hero">
+            <h1>AeroSEA Airlines</h1>
+            <p><i>"Experience the Heart of SEA"</i></p>
+        </section>
+
+        <div class="home-container">
+            <form>
+                <table width="100%">
+                    <tr>
+                        <td width="25%">
+                            <b>Departure</b><br>
+                            <div class="dropdown">
+                                <input type="text" placeholder="Select Departure" id="departureInput">
+                                <span class="clear-btn" id="departureclearBtn">x</span>
+                                <div id="departureDropdown" class="dropdown-content"></div>
+                            </div>
+                        </td>
+                        <td width="25%">
+                            <b>Destination</b><br>
+                            <div class="dropdown">
+                                <input type="text" placeholder="Select Destination" id="destinationInput">
+                                <span class="clear-btn" id="destinationclearBtn">x</span>
+                                <div id="destinationDropdown" class="dropdown-content"></div>
+                            </div>
+                        </td>
+                        <td width="25%">
+                            <b>Departure Date</b><br>
+                            <input type="date" id="departureDate">
+                        </td>
+                        <td width="25%">
+                            <b>Pax and Cabin</b><br>
+                            <div id="paxCabinBar">Select passengers</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%" colspan="2">
+                            <b>Enter promo code</b><br>
+                            <input type="text" placeholder="Enter promo code" id="promoInput">
+                        </td>
+                        <td colspan="4" style="text-align: right;">
+                            <button type="button" id="searchBtn"><b>Search Flights</b></button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        <div id="paxCabinPopup">
+            <span id="paxCloseBtn">x</span>
+            <h3>Passenger and Cabin Selection</h3>
+
+            <div class="paxRow" data-type="Adult"><button class="minusBtn">−</button><span class="paxCount">1</span><button class="plusBtn">+</button></div>
+            <div class="paxRow" data-type="Child"><button class="minusBtn">−</button><span class="paxCount">0</span><button class="plusBtn">+</button></div>
+            <div class="paxRow" data-type="Infant"><button class="minusBtn">−</button><span class="paxCount">0</span><button class="plusBtn">+</button></div>
+            <div class="paxRow" data-type="Senior Citizen"><button class="minusBtn">−</button><span class="paxCount">0</span><button class="plusBtn">+</button></div>
+            <div class="paxRow" data-type="Person with Disability (PWD)"><button class="minusBtn">−</button><span class="paxCount">0</span><button class="plusBtn">+</button></div>
+
+            <hr>
+            <h4>Select Cabin</h4>
+            <label><input type="radio" name="cabin" value="Economy" checked> Economy</label><br>
+            <label><input type="radio" name="cabin" value="Business"> Business</label><br>
+            <label><input type="radio" name="cabin" value="First Class"> First Class</label>
+
+            <button id="paxContinueBtn">Continue</button>
+        </div>
+
+        <div class="about-aerosea">
+            <h3>About</h3>
+            <h1>AeroSEA Airlines</h1>
+            <br>
+            <p>AeroSEA Airlines is the leading carrier in all of Southeast Asia, offering full-service air travel across the region. AeroSEA's modern fleet of aircraft operates<br>
+                scheduled nonstop flights from hubs in key cities across Southeast Asia, connecting passengers to major business centers and cultural destinations. Known for<br>
+                its warm and attentive service, AeroSEA Airlines bridges the skies and the SEA, providing reliable, comfortable travel for business travelers and adventurers<br>
+                throughout the region.</p>
+        </div>
+    </section>
+
+    <script src="booking.js"></script>
+
+    <footer>
+        <p>© 2025 AeroSEA Airlines. All Rights Reserved.</p>
+    </footer>
+
+    <script src="dropdown.js"></script>
+    <script src="pax.js"></script>
+    <script src="search.js"></script>
+</script>
+</body>
+</html>

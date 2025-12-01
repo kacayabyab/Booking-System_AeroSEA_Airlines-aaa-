@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Booking Details</title>
+
+<!-- GLOBAL STYLES -->
+<style>
+* {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+header, nav, footer {
+    width: 100%; /* ensures full width */
+}
+
+/* HEADER & NAV */
+header {
+    width: 100%;
+    background-color: #0b2651;
+    padding: 15px;
+}
+nav {
+    width: 100%;
+    background-color: #a60a0f;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-title {
+    font-weight: bold;
+    font-size: 28px;
+}
+.nav-title img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.nav-links a {
+    margin-right: 10px;
+    color: white;
+    text-decoration: none;
+}
+/*.nav-links a:hover {
+    text-decoration: underline;
+}*/
+
+/* FLIGHT CARDS */
+h2 {
+    text-align: center;
+    color: #0b2651;
+    margin: 25px 0;
+}
+.flight-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 25px 40px;
+    border-radius: 16px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.flight-card:hover {
+    background: #e8f0ff;
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+.flight-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.route {
+    font-size: 22px;
+    font-weight: bold;
+    color: #0b2651;
+}
+.time-arrow {
+    font-size: 18px;
+    color: #555;
+}
+.emoji {
+    color: #ae4447;
+    font-size: 28px;
+}
+.estimated {
+    font-size: 18px;
+    color: #000;
+}
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0b2651;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+}
+
+
+.book-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+.book-now, .back {
+    font-size: 20px;
+    padding: 12px 40px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.book-now { background: #0b2651; margin-left: 20px; }
+.back { background: #a60a0f; }
+.book-now:hover, .back:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* AIRPLANE SEAT SELECTION */
+h1 { margin: 25px 0; color: #333; text-align: center; }
+.airplane-container { position: relative; width: 100%; max-width: 350px; margin-bottom: 20px; }
+.airplane {
+    width: 100%;
+    background: #e6e6e6;
+    border-radius: 50px;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.cockpit {
+    width: 50%;
+    height: 40px;
+    background: #444;
+    border-radius: 50% 50% 0 0;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+.tail {
+    width: 25%;
+    height: 30px;
+    background: #444;
+    border-radius: 0 0 50% 50%;
+    margin-top: 8px;
+}
+.fuselage-row {
+    display: grid;
+    grid-template-columns: 40px auto 40px;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.exit-side {
+    background-color: #ff9800;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+}
+.exit-empty { height: 40px; }
+.first-class .seat { background-color: #cce5ff; }
+.business-class .seat { background-color: #d4edda; }
+.economy-class .seat { background-color: #f8d7da; }
+.seat.selected { background-color: #4caf50 !important; color:white; }
+.seating { display: grid; grid-template-columns: repeat(2,35px) 15px repeat(2,35px); gap:6px; justify-content:center; }
+.seat {
+    width: 35px; height: 35px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    transition: 0.2s;
+}
+.aisle { width: 15px; }
+.restroom {
+    width: 90%;
+    background-color: #2196f3;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px 0;
+}
+.info-box {
+    background:white;
+    padding:15px;
+    border-radius:8px;
+    width:90%;
+    max-width: 400px;
+    margin-bottom: 25px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+.confirm-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: background 0.2s;
+}
+.confirm-btn:hover { background-color: #0056b3; }
+
+/* FARE DETAILS */
+.fare-section { margin-top: 50px; padding: 20px; width: 100%; max-width: 900px; }
+.fare-title { text-align: center; color: #0b2651; margin-bottom: 30px; }
+.fare-container { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+.fare-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+    border-radius: 15px;
+    height: 340px;
+    width: 250px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+.fare-card:hover { transform: translateY(-5px); border-color: #1e90ff; }
+.fare-card h2 { text-align:left; color:black; margin-bottom:15px; }
+.fare-card p { color:black; font-size:20px; }
+.fare-price { font-size:22px; font-weight:bold; margin:10px 0; }
+.fare-selected { border-color:#1e90ff !important; background:#e8f3ff; }
+.fare-btn {
+    margin: 50px auto;
+    padding: 12px;
+    background: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    width: 200px;
+}
+
+footer {
+    width: 100%;
+    background-color: #0b2651;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    flex-shrink: 0;
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header></header>
+    <nav>
+        <div class="nav-title">
+            <img src="https://i.imgur.com/cwiFDWO.png" alt="AeroSEA Logo" height="50px">
+            AeroSEA Airlines
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="Booking-details.html">Booking details</a>
+            <a href="Guest-details.html">Guest details</a>
+            <a href="Payment.html">Payment</a>
+            <a href="Confirmation.html">Confirmation</a>
+        </div>
+    </nav>
+
+<!-- FLIGHT CARDS -->
+<div class="container">
+    <h2>Available Flights</h2>
+    <div class="flight-card">
+        <div class="flight-left">
+            <div class="route">Manila → Tokyo</div>
+            <div class="time-arrow" id="time1">--:-- → --:--</div>
+        </div>
+        <div class="emoji">✈︎</div>
+        <div class="estimated" id="duration1">--:--</div>
+        <div class="price" id="price1">₱---</div>
+    </div>
+
+    <div class="flight-card">
+        <div class="flight-left">
+            <div class="route">Manila → Tokyo</div>
+            <div class="time-arrow" id="time2">--:-- → --:--</div>
+        </div>
+        <div class="emoji">✈︎</div>
+        <div class="estimated" id="duration2">--:--</div>
+        <div class="price" id="price2">₱---</div>
+    </div>
+
+    <div class="flight-card">
+        <div class="flight-left">
+            <div class="route">Manila → Tokyo</div>
+            <div class="time-arrow" id="time3">--:-- → --:--</div>
+        </div>
+        <div class="emoji">✈︎</div>
+        <div class="estimated" id="duration3">--:--</div>
+        <div class="price" id="price3">₱---</div>
+    </div>
+
+    <div class="book-container">
+        <button class="back">Go Back</button>
+        <button class="book-now">Book Now</button>
+    </div>
+</div>
+
+<!-- AIRPLANE SEAT SELECTION -->
+<h1>Airplane Seat Selection (PHP Pricing)</h1>
+<div class="airplane-container">
+    <div class="airplane">
+        <div class="cockpit">Cockpit</div>
+        <div id="rowsContainer"></div>
+        <div class="restroom">Restroom</div>
+        <div class="tail"></div>
+        <button class="confirm-btn" id="confirmBtn">Confirm Selection</button>
+    </div>
+</div>
+
+<div class="info-box">
+    <p><strong>Seats Selected:</strong> <span id="seatCount">0</span></p>
+    <p><strong>Seat Types:</strong> <span id="seatTypes">None</span></p>
+    <p><strong>Total Price:</strong> ₱<span id="totalPrice">0</span></p>
+    <p><strong>Preview:</strong></p>
+    <div id="previewBox" style="padding:10px; background:#fafafa; border:1px solid #ddd; border-radius:6px; min-height:40px;">No seats selected.</div>
+</div>
+
+<!-- FARE DETAILS -->
+<div class="fare-section">
+    <h1 class="fare-title">Choose Your Fare</h1>
+    <div class="fare-container">
+        <div class="fare-card" data-fare="Economy Save">
+            <h2>Economy Save</h2>
+            <p>• 💺 Basic seat</p>
+            <p>• 🧳 No baggage</p>
+            <p>• <b>⟳</b> Flexibility</p>
+            <p class="fare-price">₱1,499</p>
+        </div>
+        <div class="fare-card" data-fare="Economy Value">
+            <h2>Economy Value</h2>
+            <p>• 💺 Standard seat</p>
+            <p>• 🧳 10kg baggage</p>
+            <p>• <b>⟳</b> Flexibility</p>
+            <p class="fare-price">₱2,499</p>
+        </div>
+        <div class="fare-card" data-fare="Economy Flex">
+            <h2>Economy Flex</h2>
+            <p>• 💺 Priority seat</p>
+            <p>• 🧳 20kg baggage</p>
+            <p>• <b>⟳</b> Flexibility</p>
+            <p class="fare-price">₱3,999</p>
+        </div>
+    </div>
+    <button class="fare-btn" id="continueBtn">Continue</button>
+</div>
+
+<footer>
+        <p>© 2025 AeroSEA Airlines. All Rights Reserved.</p>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+// Flight cards randomization
+function randomTime() {
+    const hour = Math.floor(Math.random() * 14) + 6;
+    const min = Math.floor(Math.random() * 60);
+    return {hour, min, text: `${String(hour).padStart(2,"0")}:${String(min).padStart(2,"0")}`};
+}
+function addMinutes(hour, min, duration){
+    let total = hour*60 + min + duration;
+    let h = Math.floor(total/60)%24;
+    let m = total % 60;
+    return `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}`;
+}
+function randomDuration() { return Math.floor(Math.random()*180)+60; }
+function randomPrice() { return 3000 + Math.floor(Math.random()*6000); }
+for(let i=1;i<=3;i++){
+    const dep = randomTime();
+    const duration = randomDuration();
+    const arr = addMinutes(dep.hour, dep.min, duration);
+    const price = randomPrice();
+    document.querySelector(`#time${i}`).textContent = `${dep.text} → ${arr}`;
+    document.querySelector(`#duration${i}`).textContent = `${Math.floor(duration/60)}h ${duration%60}m`;
+    document.querySelector(`#price${i}`).textContent = `₱${price}`;
+}
+
+// Airplane seat selection
+const rows = 25, exitRow = 12, leftSeats = ['A','B'], rightSeats = ['C','D'], container = document.getElementById("rowsContainer");
+const prices = { 'first': 17000, 'business': 11000, 'economy': 5500 };
+function getClassForRow(row){ if(row<=3) return "first-class"; if(row<=8) return "business-class"; return "economy-class"; }
+function getSeatType(row){ if(row<=3) return 'First Class'; if(row<=8) return 'Business Class'; return 'Economy Class'; }
+function getSeatPrice(row){ if(row<=3) return prices.first; if(row<=8) return prices.business; return prices.economy; }
+function updateInfo(){
+    const selected = document.querySelectorAll('.seat.selected');
+    document.getElementById('seatCount').textContent = selected.length;
+    const types = [...selected].map(seat => seat.dataset.type);
+    document.getElementById('seatTypes').textContent = [...new Set(types)].join(', ') || 'None';
+    let total = [...selected].reduce((sum, seat) => sum + Number(seat.dataset.price),0);
+    document.getElementById('totalPrice').textContent = total;
+    const preview = document.getElementById('previewBox');
+    preview.innerHTML = selected.length===0?'No seats selected.':[...selected].map(s=>`${s.textContent} (${s.dataset.type} - ₱${s.dataset.price})`).join('<br>');
+}
+for(let i=1;i<=rows;i++){
+    const fuselageRow = document.createElement("div");
+    fuselageRow.className = "fuselage-row " + getClassForRow(i);
+    const leftExit = document.createElement("div");
+    leftExit.className = (i===exitRow)?"exit-side":"exit-empty";
+    if(i===exitRow) leftExit.textContent="EXIT";
+    fuselageRow.appendChild(leftExit);
+    if(i!==exitRow){
+        const seating = document.createElement("div");
+        seating.className="seating";
+        leftSeats.forEach(l=>{
+            const seat=document.createElement("div");
+            seat.className="seat"; seat.setAttribute("tabindex","0"); seat.textContent=`${i}${l}`;
+            seat.dataset.type=getSeatType(i); seat.dataset.price=getSeatPrice(i);
+            seat.addEventListener('click',()=>{seat.classList.toggle('selected'); updateInfo();});
+            seating.appendChild(seat);
+        });
+        seating.appendChild(Object.assign(document.createElement("div"), {className:"aisle"}));
+        rightSeats.forEach(r=>{
+            const seat=document.createElement("div");
+            seat.className="seat"; seat.setAttribute("tabindex","0"); seat.textContent=`${i}${r}`;
+            seat.dataset.type=getSeatType(i); seat.dataset.price=getSeatPrice(i);
+            seat.addEventListener('click',()=>{seat.classList.toggle('selected'); updateInfo();});
+            seating.appendChild(seat);
+        });
+        fuselageRow.appendChild(seating);
+    } else {
+        const empty = document.createElement("div"); empty.style.height="40px"; fuselageRow.appendChild(empty);
+    }
+    const rightExit = document.createElement("div");
+    rightExit.className = (i===exitRow)?"exit-side":"exit-empty";
+    if(i===exitRow) rightExit.textContent="EXIT";
+    fuselageRow.appendChild(rightExit);
+    container.appendChild(fuselageRow);
+}
+document.getElementById("confirmBtn").addEventListener("click",()=>{
+    const selected = document.querySelectorAll(".seat.selected");
+    if(selected.length===0){ alert("No seats selected!"); return; }
+    const list = Array.from(selected).map(s=>s.textContent);
+    alert("You selected: "+list.join(", ") + "\nTotal Price: ₱" + document.getElementById('totalPrice').textContent);
+});
+
+// Fare selection
+const fareCards = document.querySelectorAll('.fare-card');
+const continueBtn = document.getElementById('continueBtn');
+let selectedFare = null;
+fareCards.forEach(card=>{
+    card.addEventListener('click',()=>{
+        fareCards.forEach(c=>c.classList.remove('fare-selected'));
+        card.classList.add('fare-selected');
+        selectedFare=card.dataset.fare;
+        continueBtn.style.display='flex';
+    });
+});
+continueBtn.addEventListener('click',()=>{ alert("You selected: " + selectedFare); });
+</script>
+
+</body>
+</html>

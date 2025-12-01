@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AeroSEA Airlines</title>
+
+<style>
+    /* ===== GLOBAL / RESET ===== */
+    * {
+        font-family: "Poppins", sans-serif;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #eff0f2;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ===== HEADER (EMPTY ON PURPOSE) ===== */
+    header {
+        padding: 15px;
+        background-color: #0b2651;
+    }
+
+    /* ===== NAVIGATION BAR (YOUR PROVIDED STYLE) ===== */
+    nav {
+        background-color: #a60a0f;
+        color: white;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-title {
+        font-weight: bold;
+        font-size: 28px;
+    }
+
+    .nav-title img {
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+
+    .nav-links a {
+        margin-right: 10px;
+        color: white;
+        text-decoration: none;
+    }
+
+    /* ===== BUTTONS ===== */
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        padding-top: 80px;
+    }
+
+    .img-btn {
+        width: 180px;
+        height: 180px;
+        background-color: lightgray;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 4px 8px;
+        transition: 0.25s;
+    }
+
+    .img-btn:hover {
+        transform: scale(1.05);
+        background-color: #e0e0e0;
+    }
+
+    .img-btn img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .img-btn h1 {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    /* ===== CASH INFO ===== */
+    #cash-info {
+        display: none;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    /* ===== FOOTER (UNIVERSAL STYLE YOU PROVIDED) ===== */
+    footer {
+        background-color: #0b2651;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: auto;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="topbar"></div>
+
+<header></header>
+
+<!-- ===== NAV BAR (UPDATED TO YOUR FORMAT) ===== -->
+<nav>
+    <div class="nav-title">
+        <img src="https://i.imgur.com/cwiFDWO.png" alt="AeroSEA Logo" height="50px">
+        AeroSEA Airlines
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="Booking-details.html">Booking details</a>
+        <a href="Guest-details.html">Guest details</a>
+        <a href="Payment.html">Payment</a>
+        <a href="Confirmation.html">Confirmation</a>
+    </div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="content">
+
+    <div class="button-container">
+
+        <button class="img-btn" onclick="toggleCashInfo()">
+            <img src="https://i.pinimg.com/736x/fe/27/81/fe278101258410173e62de4825569a03.jpg" alt="">
+            <h1>Pay Cash</h1>
+        </button>
+
+        <button class="img-btn">
+            <img src="https://i.pinimg.com/736x/5b/64/de/5b64dea00429a7394afe6f1034ba2cec.jpg" alt="">
+        </button>
+
+        <button class="img-btn">
+            <img src="https://i.pinimg.com/1200x/85/af/18/85af18c41f91aff2034c2dbe0a77b645.jpg" alt="">
+        </button>
+    </div>
+
+    <div id="cash-info">
+        <h2>Cash Payment Information</h2>
+        <p>You can pay in cash at the airport counter or through any AeroSEA authorized payment center.</p>
+    </div>
+
+</div>
+
+<footer>
+    © 2025 AeroSEA Airlines. All Rights Reserved.
+</footer>
+
+<script>
+function toggleCashInfo() {
+    const info = document.getElementById("cash-info");
+    info.style.display = (info.style.display === "none" || info.style.display === "") 
+                         ? "block" 
+                         : "none";
+}
+</script>
+
+</body>
+</html>

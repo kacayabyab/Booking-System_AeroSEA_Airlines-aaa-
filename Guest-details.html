@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AeroSEA Airlines - Guest Details</title>
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+* {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #eff0f2;
+}
+
+header {
+    background-color: #0b2651;
+    padding: 15px;
+}
+
+nav {
+    background-color: #a60a0f;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-title {
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.nav-title img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.nav-links a {
+    margin-right: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.passtitle {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto 0 auto;
+}
+
+.passtitle h2 {
+    background-color: white;
+    display: inline-block;
+    padding: 0 10px 5px 15px;
+    border-radius: 15px 15px 0 0;
+    font-size: 25px;
+}
+
+.container {
+    background-color: white;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    border-radius: 0 15px 15px 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 20px;
+}
+
+.container h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.form-row h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+label::after {
+    content: " *";
+    color: red;
+    font-weight: bold;
+}
+
+.none::after {
+    content: "";
+}
+
+.input-medium-box,
+.input-dropbox,
+.input-nationality,
+.input-passid,
+.input-coi,
+.input-date,
+.input-contact,
+.input-verifyid,
+.input {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+}
+
+select {
+    width: 150px;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+.birthdate,
+.expdate {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+}
+
+.birthdate input,
+.expdate input {
+    width: 100%;
+    text-align: center;
+}
+
+input[type="file"]::file-selector-button {
+    border: 1px solid #000;
+    padding: 8px 25px;
+    border-radius: 5px;
+    background-color: white;
+    font-family: "Poppins", sans-serif;
+    margin-left: 60px;
+}
+
+.pop-up {
+    display: grid;
+    background-color: white;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: justify;
+}
+
+.pop-up p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.pop-up button {
+    border: 1px solid #000;
+    padding: 8px 30px;
+    border-radius: 5px;
+    background-color: white;
+    font-family: "Poppins", sans-serif;
+    margin: 10px auto 0;
+    display: block;
+    cursor: pointer;
+}
+
+.pop-up button:hover {
+    background: #0b2651;
+    color: white;
+}
+
+.button {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.button button {
+    font-size: 16px;
+    padding: 10px 35px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.return button {
+    background-color: #eff0f2;
+    border: 2px solid #0b2651;
+    color: #0b2651;
+}
+
+.return button:hover {
+    background: #0b2651;
+    color: #eff0f2;
+}
+
+.proceed button {
+    background-color: #a60a0f;
+    border: 2px solid #a60a0f;
+    color: white;
+}
+
+.proceed button:hover {
+    background: #8a080c;
+    color: white;
+}
+
+.footer {
+    background-color: #0b2651;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    flex-shrink: 0;
+}
+
+#textbox {
+    display: none;
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header></header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-title">
+          <img src="https://i.imgur.com/cwiFDWO.png" alt="AeroSEA Logo" height="50px">
+          AeroSEA Airlines
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="Booking-details.html">Booking details</a>
+            <a href="Guest-details.html">Guest details</a>
+            <a href="Payment.html">Payment</a>
+            <a href="Confirmation.html">Confirmation</a>
+        </div>
+    </nav>
+
+    <!-- PASSENGER TITLE -->
+    <div class="passtitle"><h2>Passenger 1:</h2></div>
+
+    <!-- GUEST FORM -->
+    <div class="container">
+        <!-- LEFT COLUMN -->
+        <div class="Left-Column">
+            <h3>Personal Information</h3>
+            <div class="form-row">
+                <div class="input-medium-box">
+                    <label for="fname">First Name</label>
+                    <input class="required" type="text" id="fname" placeholder="eg:Juan" />
+                </div>
+                <div class="input-medium-box">
+                    <label for="lname">Last Name</label>
+                    <input class="required" type="text" id="lname" placeholder="Dela Cruz" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-dropbox">
+                    <label for="gender">Gender</label>
+                    <select class="required" id="gender">
+                        <option disabled selected>Select a Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="N/A">Preferred not to say</option>
+                    </select>
+                </div>
+                <div class="input-date">
+                    <label for="birth">Date of Birth</label>
+                    <div class="birthdate">
+                        <input class="required" type="text" id="mm" maxlength="2" placeholder="MM" />
+                        <input class="required" type="text" id="dd" maxlength="2" placeholder="DD" />
+                        <input class="required" type="text" id="yyyy" maxlength="4" placeholder="YYYY" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-dropbox">
+                    <label for="Title">Title</label>
+                    <select class="required" id="Title">
+                        <option disabled selected>Select a Title</option>
+                        <option value="mr">Mr.</option>
+                        <option value="ms">Ms</option>
+                        <option value="mrs">Mrs.</option>
+                    </select>
+                </div>
+                <div class="input-nationality">
+                    <label for="nat">Nationality</label>
+                    <input class="required" type="text" id="nat" placeholder="eg:Filipino" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-passid">
+                    <label for="passport-number">ID/Passport Number(12-digits)</label>
+                    <input class="required" type="text" id="passport-number" maxlength="12" placeholder="eg:000000000000" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-coi">
+                    <label for="coi">Country of Issue</label>
+                    <input class="required" type="text" id="coi" placeholder="eg:Philippines" />
+                </div>
+                <div class="input-date">
+                    <label for="expiration">ID expiration</label>
+                    <div class="expdate">
+                        <input class="required" type="text" id="exp-mm" maxlength="2" placeholder="MM" />
+                        <input class="required" type="text" id="exp-dd" maxlength="2" placeholder="DD" />
+                        <input class="required" type="text" id="exp-yyyy" maxlength="4" placeholder="YYYY" />
+                    </div>
+                </div>
+            </div>
+
+            <h3>Required Documents</h3>
+            <div class="form-row">
+                <div class="input"><label for="birth-certificate">Birth Certificate</label><input type="file" id="birth-certificate" /></div>
+            </div>
+            <div class="form-row">
+                <div class="input"><label for="medical-certificate">Medical Certificate</label><input type="file" id="medical-certificate" /></div>
+            </div>
+            <div class="form-row">
+                <div class="input"><label class="none" for="travel-visa">Travel VISA (if not Filipino)</label><input type="file" id="travel-visa" /></div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="Right-Column">
+            <h3>Contact Information</h3>
+            <div class="form-row">
+                <div class="input-contact"><label for="cnumber">Contact Number</label><input class="required" type="text" id="cnumber" placeholder="eg:09953573599 or 7832-131212" /></div>
+            </div>
+            <div class="form-row">
+                <div class="input-contact"><label for="email">Email</label><input class="required" type="email" id="email" placeholder="Juandelacruz@gmail.com" /></div>
+            </div>
+            <div class="form-row">
+                <div class="input-contact"><label for="ecp">Emergency Contact Person</label><input class="required" type="text" id="ecp" placeholder="eg:Juan Dela Cruz" /></div>
+            </div>
+            <div class="form-row">
+                <div class="input-contact"><label for="ecn">Emergency Contact Number</label><input class="required" type="text" id="ecn" placeholder="09953573599 or 7832-131212" /></div>
+            </div>
+            <div class="form-row">
+                <div class="input-needs">
+                    <h4>Additional Needs</h4>
+                    <div class="check"><input type="checkbox" id="request" /> <label class="none" for="request">I have a request</label></div>
+                    <textarea id="textbox"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-discount">
+                    <h4>Discount Application</h4>
+                    <div class="check"><input type="checkbox" id="discount" /> <label class="none" for="discount">I am a Senior Citizen/Person With Disability</label></div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-verifyid"><label class="none" for="validate">Input ID number to verify</label><input type="text" id="validate" /></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POP-UP REMINDER -->
+    <div class="pop-up" id="pop-up">
+        <div class="remind">
+            <h4>Important Reminders</h4>
+            <p>You are solely responsible for ensuring you possess all valid travel documents, including IDs, passports, visas, and medical certificates required for your journey. Failure to comply may result in denied boarding.</p>
+            <button id="gotitbtn">Got It</button>
+        </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="button">
+        <div class="return"><button id="returnbtn">Return</button></div>
+        <div class="proceed"><button id="proceedbtn">Proceed</button></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>© 2025 AeroSEA Airlines. All Rights Reserved.</p>
+    </div>
+
+    <script>
+        // Show/hide textarea on checkbox
+        const requestCheckbox = document.getElementById("request");
+        const requestText = document.getElementById("textbox");
+        requestCheckbox.addEventListener("change", function() {
+            requestText.style.display = this.checked ? "block" : "none";
+        });
+
+        // Validate required inputs before proceeding
+        const proceedbtn = document.getElementById("proceedbtn");
+        proceedbtn.addEventListener("click", function() {
+            const requestInputs = document.querySelectorAll(".required");
+            let allFilled = true;
+            requestInputs.forEach((input) => {
+                if (input.type !== "file" && (input.value.trim() === "" || input.value.includes("Select"))) {
+                    input.style.border = "2px solid red";
+                    allFilled = false;
+                } else if (input.type !== "file") {
+                    input.style.border = "1px solid black";
+                }
+                input.addEventListener("input", () => input.style.border = "1px solid black");
+            });
+            const birthCertificate = document.getElementById("birth-certificate");
+            const medicalCertificate = document.getElementById("medical-certificate");
+            const travelVisa = document.getElementById("travel-visa");
+            const nationality = document.getElementById("nat").value.trim().toLowerCase();
+
+            if (birthCertificate.files.length === 0) allFilled = false;
+            if (medicalCertificate.files.length === 0) allFilled = false;
+            if (nationality !== "filipino" && travelVisa.files.length === 0) allFilled = false;
+
+            if (!allFilled) { alert("Please fill out all required fields."); return; }
+            window.location.href = "Payment";
+        });
+
+        // Return button
+        const returnbtn = document.getElementById("returnbtn");
+        returnbtn.addEventListener("click", function() { window.history.back(); });
+
+        // Pop-up button
+        const gotitbtn = document.getElementById("gotitbtn");
+        const popup = document.querySelector(".pop-up");
+        gotitbtn.addEventListener("click", function() { popup.style.display = "none"; });
+    </script>
+</body>
+</html>
+

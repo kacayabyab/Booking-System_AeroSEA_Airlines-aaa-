@@ -1,0 +1,272 @@
+* {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0b2651;
+    padding: 15px;
+}
+
+nav {
+    background-color: #a60a0f;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-title {
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.nav-title img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.nav-links a {
+    margin-right: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.hero {
+    width: 100%;
+    height: 400px;
+    background-image: url('https://i.imgur.com/UdCCCca.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 30px -10px rgba(0, 0, 0, 0.4);
+}
+
+.hero h1 {
+    font-size: 42px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+.hero p {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+.home-container {
+    width: 75%;
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.4);
+    margin: 100px auto;
+}
+
+.dropdown {
+    position: relative;
+    display: block;
+    width: 75%;
+}
+
+#departureInput,
+#destinationInput {
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 12px 36px 12px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: #f6f6f6;
+    border-radius: 8px;
+}
+
+#paxCabinBar,
+#promoInput,
+#departureDate {
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 12px 36px 12px 16px;
+    width: 75%;
+    border: none;
+    outline: none;
+    background-color: #f6f6f6;
+    border-radius: 8px;
+}
+
+#paxCabinBar {
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    background-color: #f6f6f6;
+    border-radius: 8px;
+}
+
+.clear-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-weight: bold;
+    color: #888;
+    font-size: 18px;
+    user-select: none;
+}
+
+.clear-btn:hover {
+    color: #000;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    border-top: none;
+    z-index: 2;
+}
+
+.dropdown-content div {
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.dropdown-content div:hover {
+    background-color: #ddd;
+}
+
+#paxCabinPopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: 420px;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+    display: none;
+    z-index: 1000;
+}
+
+#paxCabinPopup h3,
+#paxCabinPopup h4 {
+    color: #0b2651;
+}
+
+#paxCabinPopup .paxRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.paxRow span,
+.paxRow button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paxRow::before {
+    content: attr(data-type);
+    width: 150px;
+    display: inline-block;
+}
+
+.paxRow button {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    background:#e5e5e5;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#paxCabinPopup hr {
+    margin: 15px 0;
+}
+
+#paxContinueBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #0b2651;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#paxCloseBtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #0b2651;
+}
+
+.about-aerosea {
+    background-color:#eff0f2;
+    text-align: center;
+    color: #0b2651;
+    padding: 50px;
+    line-height: 1.5;
+}
+
+
+#searchBtn {
+    padding: 12px 30px;
+    background-color: #a60a0f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+#searchBtn:enabled {
+    opacity: 1;
+}
+
+/* Ensure body and html take full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content grows to fill available space */
+#Home, #booking-details {
+    flex: 1;
+}
+
+/* Footer always at the bottom */
+footer {
+    background-color: #0b2651;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    flex-shrink: 0;
+}
